@@ -1,12 +1,13 @@
 ---
-import { Hero } from '@/components/sections';
+import { Hero, About } from '@/components/sections';
 import { Header } from '../components/organisms';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
 	<Header />
-	<main>
+	<main class="flex flex-col gap-y-18">
 		<Hero />
+		<About />
 	</main>
 </Layout>

@@ -1,9 +1,9 @@
 ---
 const Routes = [
-  { name: "About", path: "/" },
-  { name: "Services", path: "/" },
-  { name: "Portfolio", path: "/" },
-  { name: "Contact", path: "/" },
+  { name: "Sobre mí", path: "#about" },
+  { name: "Servicios", path: "#services" },
+  { name: "Portafolio", path: "#portfolio" },
+  { name: "Contacto", path: "#contact" },
 ];
 ---
 
@@ -50,7 +50,7 @@ const Routes = [
 
     <ul class="flex flex-col gap-8 items-center">
       {Routes.map((route) => (
-        <li class="text-white text-2xl font-semibold">
+        <li class="text-white text-2xl font-semibold font-montserrat">
           <a href={route.path}>{route.name}</a>
         </li>
       ))}

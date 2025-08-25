@@ -1,5 +1,6 @@
 ---
 import '@fontsource/cormorant-garamond';
+import '@fontsource/montserrat';
 import '../styles/global.css';
 ---
 <!doctype html>
@@ -24,7 +25,18 @@ import '../styles/global.css';
 		height: 100%;
 	}
 
+	  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
 	body {
 		font-family: 'Cormorant Garamond', serif;
+		color: var(--color-primary);
 	}
 </style>
