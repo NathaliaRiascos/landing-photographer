@@ -1,0 +1,80 @@
+---
+const Routes = [
+  { name: "About", path: "/" },
+  { name: "Services", path: "/" },
+  { name: "Portfolio", path: "/" },
+  { name: "Contact", path: "/" },
+];
+---
+
+<nav class="px-4 py-3 flex items-center">
+  <!-- Botón hamburguesa -->
+  <button
+    id="menu-toggle"
+    class="md:hidden text-primary focus:outline-none"
+    aria-label="Abrir menú"
+    aria-controls="mobile-menu"
+    aria-expanded="false"
+  >
+    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+
+  <!-- Menú Desktop -->
+  <ul class="hidden md:flex gap-9 items-center">
+    {Routes.map((route) => (
+      <li class="text-primary font-semibold text-lg">
+        <a href={route.path}>{route.name}</a>
+      </li>
+    ))}
+  </ul>
+
+  <!-- Menú Mobile con animación -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-black bg-opacity-80 z-40 flex flex-col items-center justify-center gap-8
+           opacity-0 scale-95 pointer-events-none transition-all duration-300 md:hidden"
+    role="dialog"
+    aria-modal="true"
+  >
+    <button
+      id="menu-close"
+      class="absolute top-6 right-6 text-white text-3xl focus:outline-none"
+      aria-label="Cerrar menú"
+    >
+      <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <ul class="flex flex-col gap-8 items-center">
+      {Routes.map((route) => (
+        <li class="text-white text-2xl font-semibold">
+          <a href={route.path}>{route.name}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const toggleBtn = document.getElementById("menu-toggle")  as HTMLButtonElement;
+  const closeBtn = document.getElementById("menu-close") as HTMLButtonElement;
+  const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
+
+  function openMenu() {
+    mobileMenu.classList.remove("opacity-0", "scale-95", "pointer-events-none");
+    document.body.style.overflow = "hidden";
+    toggleBtn.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.add("opacity-0", "scale-95", "pointer-events-none");
+    document.body.style.overflow = "";
+    toggleBtn.setAttribute("aria-expanded", "false");
+  }
+
+  toggleBtn?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+</script>
