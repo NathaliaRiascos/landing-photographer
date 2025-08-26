@@ -11,12 +11,20 @@ const Routes = [
   <!-- Botón hamburguesa -->
   <button
     id="menu-toggle"
-    class="md:hidden text-primary focus:outline-none"
+    class="md:hidden text-primary focus:outline-none cursor-pointer"
     aria-label="Abrir menú"
     aria-controls="mobile-menu"
     aria-expanded="false"
   >
-    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+    <svg
+      width="32"
+      height="32"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
       <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
   </button>
@@ -24,8 +32,13 @@ const Routes = [
   <!-- Menú Desktop -->
   <ul class="hidden md:flex gap-9 items-center">
     {Routes.map((route) => (
-      <li class="text-primary font-semibold text-lg">
-        <a href={route.path}>{route.name}</a>
+      <li class="text-primary font-medium text-lg">
+        <a
+          href={route.path}
+          class="nav-link transition-colors hover:text-secondary"
+        >
+          {route.name}
+        </a>
       </li>
     ))}
   </ul>
@@ -40,18 +53,31 @@ const Routes = [
   >
     <button
       id="menu-close"
-      class="absolute top-6 right-6 text-white text-3xl focus:outline-none"
+      class="absolute top-6 right-6 text-white text-3xl focus:outline-none cursor-pointer"
       aria-label="Cerrar menú"
     >
-      <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+      <svg
+        width="32"
+        height="32"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
 
     <ul class="flex flex-col gap-8 items-center">
       {Routes.map((route) => (
-        <li class="text-white text-2xl font-semibold font-montserrat">
-          <a href={route.path}>{route.name}</a>
+        <li class="text-white text-2xl font-medium font-montserrat">
+          <a
+            href={route.path}
+            class="nav-link transition-colors hover:text-gray-300"
+          >
+            {route.name}
+          </a>
         </li>
       ))}
     </ul>
@@ -62,19 +88,39 @@ const Routes = [
   const toggleBtn = document.getElementById("menu-toggle")  as HTMLButtonElement;
   const closeBtn = document.getElementById("menu-close") as HTMLButtonElement;
   const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
+  const navLinks = document.querySelectorAll(".nav-link") as NodeListOf<HTMLAnchorElement>;
 
   function openMenu() {
     mobileMenu.classList.remove("opacity-0", "scale-95", "pointer-events-none");
-    document.body.style.overflow = "hidden";
     toggleBtn.setAttribute("aria-expanded", "true");
   }
 
   function closeMenu() {
     mobileMenu.classList.add("opacity-0", "scale-95", "pointer-events-none");
-    document.body.style.overflow = "";
     toggleBtn.setAttribute("aria-expanded", "false");
+  }
+
+  function updateActiveLink() {
+    const currentHash = window.location.hash;
+    navLinks.forEach((link) => {
+      if (link.getAttribute("href") === currentHash) {
+        link.classList.add("font-bold");
+      } else {
+        link.classList.remove("font-bold");
+      }
+    });
   }
 
   toggleBtn?.addEventListener("click", openMenu);
   closeBtn?.addEventListener("click", closeMenu);
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMenu();
+      updateActiveLink();
+    });
+  });
+
+  window.addEventListener("hashchange", updateActiveLink);
+  window.addEventListener("DOMContentLoaded", updateActiveLink);
 </script>

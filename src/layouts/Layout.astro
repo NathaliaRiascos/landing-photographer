@@ -1,31 +1,44 @@
 ---
-import '@fontsource/cormorant-garamond';
-import '@fontsource/montserrat';
-import '../styles/global.css';
+import "@fontsource/cormorant-garamond";
+import "@fontsource/montserrat";
+import "../styles/global.css";
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta
+      property="og:title"
+      content="Alejandro Ruiz - Fotógrafo Profesional"
+    />
+    <meta
+      property="og:description"
+      content="Portafolio de Alejandro Ruiz, fotógrafo especializado en bodas, retratos y moda. Capturando momentos únicos con una mirada artística y profesional."
+    />
+    <meta property="og:image" content="https://tusitio.com/preview.png" />
+    <meta property="og:url" content="https://tusitio.com/" />
+    <meta property="og:type" content="website" />
+
+    <meta
+      name="description"
+      content="Portafolio de Alejandro Ruiz, fotógrafo especializado en bodas, retratos y moda. Descubre mis trabajos y contáctame para tu próximo proyecto."
+    />
+    <meta name="author" content="Alejandro Ruiz" />
+
+    <title>Alejandro Ruiz | Fotógrafo Profesional</title>
+  </head>
+  <body class="relative">
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	  html {
+  html {
     scroll-behavior: smooth;
   }
 
@@ -35,8 +48,8 @@ import '../styles/global.css';
     }
   }
 
-	body {
-		font-family: 'Cormorant Garamond', serif;
-		color: var(--color-primary);
-	}
+  body {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--color-primary);
+  }
 </style>

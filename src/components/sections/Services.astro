@@ -12,7 +12,7 @@ const services = [
     image: ServiceBodas,
     title: "Fotografía de Bodas",
   },
-    {
+  {
     image: ServiceRetratos,
     title: "Retratos Profesionales y Personales",
   },
@@ -23,14 +23,17 @@ const services = [
 ];
 ---
 
-<SectionContainer id="services" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-20 items-center">
+<SectionContainer
+  id="services"
+  class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-20 items-center justify-items-center text-center md:text-start md:justify-items-start"
+>
   <Title number="02">Servicios</Title>
   <p class="text-2xl max-w-xl">
     Ofrezco una amplia gama de servicios fotográficos adaptados a tus
     necesidades específicas.
   </p>
 
-  <div class="col-span-full grid grid-cols-1 md:grid-cols-3 gap-3">
+  <div class="col-span-full grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-3 w-full max-w-7xl">
     {
       services.map((service) => (
         <Service image={service.image} title={service.title} />

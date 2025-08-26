@@ -1,11 +1,28 @@
 ---
-const { number } = Astro.props;
+interface Props {
+  number: string;
+  variant?: 'black' | 'white';
+}
+
+const { number, variant } = Astro.props;
+
+const classByVariant = {
+  black: {
+    number: "text-gray-200",
+    text: "text-primary",
+  },
+  white: {
+    number: "text-[#2B2B2B]",
+    text: "text-white",
+  },
+}[variant || "black"];
+
 ---
 
-<h2 class="relative pl-2 lg:my-5 place-content-center">
+<h2 class="relative pl-2 lg:my-5 place-content-center z-0 w-fit">
   <span
-    class="block absolute -translate-y-1/2 not-italic -left-[4px] z-[-1] top-1/2 text-gray-200 font-montserrat text-6xl sm:text-7xl lg:text-9xl font-bold"
+    class:list={["block absolute -translate-y-1/2 not-italic -left-[4px] z-[-1] top-1/2  font-montserrat text-7xl sm:text-8xl lg:text-9xl font-bold", classByVariant.number]}
     aria-hidden="true">{number}</span
   >
-  <span class="italic text-3xl sm:text-4xl lg:text-5xl font-bold"><slot />.</span>
+  <span class:list={["italic text-3xl sm:text-4xl lg:text-5xl font-bold", classByVariant.text]}><slot />.</span>
 </h2>

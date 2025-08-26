@@ -11,9 +11,9 @@ import { Title } from "../atoms";
 
 <SectionContainer
   id="portfolio"
-  class="grid grid-cols-2 md:grid-cols-3 gap-4 items-start"
+  class="grid grid-cols-2 md:grid-cols-3 gap-4 items-center my-10 md:my-30 justify-items-center md:justify-items-start"
 >
-  <div class="flex flex-col gap-6 col-span-full md:col-span-1">
+  <div class="flex flex-col col-span-full md:col-span-1 items-center text-center mb-10 gap-10 md:gap-6 md:mb-0 md:text-start md:items-start">
     <Title number="03">Portfolio.</Title>
     <p class="text-lg md:text-2xl text-gray-800 md:max-w-sm text-balance">
       Una selección de mis trabajos más representativos, donde cada imagen
@@ -24,7 +24,7 @@ import { Title } from "../atoms";
   <Image
     src={Retrato}
     alt="Retrato en sombra"
-    class="w-full object-cover rounded md:col-span-1  h-auto max-h-[300px]"
+    class="w-full object-cover rounded  md:col-span-1  h-auto md:max-h-[300px]"
     loading="lazy"
     width={300}
     height={300}
@@ -39,11 +39,11 @@ import { Title } from "../atoms";
     height={300}
   />
 
-  <div class="col-span-2 grid grid-cols-[auto_1fr] gap-4 items-stretch">
+  <div class="col-span-2 w-full grid grid-cols-2 md:grid-cols-[auto_1fr] gap-4 items-stretch">
     <Image
       src={HombreSombrero}
       alt="Hombre con sombrero"
-      class="w-[220px] md:w-[260px] lg:w-[300px] object-cover rounded  h-auto max-h-[300px]"
+      class="w-full md:w-[260px] lg:w-[300px] object-cover rounded  h-auto max-h-[300px]"
       loading="lazy"
       width={300}
       height={300}
