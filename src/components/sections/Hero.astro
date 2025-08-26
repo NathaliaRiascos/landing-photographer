@@ -8,7 +8,7 @@ import HeroImage from "@/assets/img-hero.webp";
   class="min-h-[calc(100dvh-60px)] max-h-[800px] grid grid-cols-1 justify-items-center text-center lg:text-start lg:grid-cols-3 gap-5 lg:gap-10 xl:gap-20 w-full max-w-7xl mx-auto py-5 lg:py-10 px-4"
 >
   <h1
-    class="text-4xl sm:text-5xl lg:text-[50px] font-semibold lg:mt-10 lg:self-start italic leading-normal col-span-full lg:col-span-1 text-balance  max-w-md lg:max-w-lg"
+    class="text-4xl sm:text-5xl lg:text-[50px] font-semibold lg:mt-10 lg:self-start italic leading-normal col-span-full lg:col-span-1 text-balance max-w-md lg:max-w-lg"
   >
     CAPTURANDO MOMENTOS ÚNICOS.
   </h1>
@@ -18,9 +18,11 @@ import HeroImage from "@/assets/img-hero.webp";
     class="object-cover aspect-[3/4] self-center max-h-[400px] h-full lg:max-h-[800px]"
     width={411}
     height={618}
+    loading="eager"
+    priority
   />
   <h2
-    class="text-lg sm:text-xl lg:text-2xl lg:self-end mb-10 italic max-w-md lg:max-w-lg font-medium text-balance "
+    class="text-lg sm:text-xl lg:text-2xl lg:self-end mb-10 italic max-w-md lg:max-w-lg font-medium text-balance"
   >
     Fotógrafo especializado en bodas, retrato y moda. Una mirada artistica y
     profesional para trabajar contigo.
