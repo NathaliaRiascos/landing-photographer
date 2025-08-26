@@ -1,0 +1,40 @@
+---
+import { Title } from "../atoms";
+import { SectionContainer } from "../organisms";
+
+import ServiceBodas from "@/assets/servicio-bodas.webp";
+import ServiceModa from "@/assets/servicio-moda.webp";
+import ServiceRetratos from "@/assets/servicio-retratos.webp";
+import { Service } from "../molecules";
+
+const services = [
+  {
+    image: ServiceBodas,
+    title: "Fotografía de Bodas",
+  },
+    {
+    image: ServiceRetratos,
+    title: "Retratos Profesionales y Personales",
+  },
+  {
+    image: ServiceModa,
+    title: "Fotografía de Moda y Editorial",
+  },
+];
+---
+
+<SectionContainer id="services" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-20 items-center">
+  <Title number="02">Servicios</Title>
+  <p class="text-2xl max-w-xl">
+    Ofrezco una amplia gama de servicios fotográficos adaptados a tus
+    necesidades específicas.
+  </p>
+
+  <div class="col-span-full grid grid-cols-3 gap-3">
+    {
+      services.map((service) => (
+        <Service image={service.image} title={service.title} />
+      ))
+    }
+  </div>
+</SectionContainer>
