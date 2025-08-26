@@ -1,0 +1,59 @@
+---
+import { SectionContainer } from "../organisms";
+import { Image } from "astro:assets";
+
+import Retrato from "@/assets/retrato-en-sombra.webp";
+import Pareja from "@/assets/pareja-a-la-moda.webp";
+import Boda from "@/assets/boda-elegante.webp";
+import HombreSombrero from "@/assets/hombre-con-sombrero.webp";
+import { Title } from "../atoms";
+---
+
+<SectionContainer
+  id="portfolio"
+  class="grid grid-cols-2 md:grid-cols-3 gap-4 items-start"
+>
+  <div class="flex flex-col gap-6 col-span-full md:col-span-1">
+    <Title number="03">Portfolio.</Title>
+    <p class="text-lg md:text-2xl text-gray-800 md:max-w-sm text-balance">
+      Una selección de mis trabajos más representativos, donde cada imagen
+      refleja mi pasión por capturar la esencia de cada momento.
+    </p>
+  </div>
+
+  <Image
+    src={Retrato}
+    alt="Retrato en sombra"
+    class="w-full object-cover rounded md:col-span-1  h-auto max-h-[300px]"
+    loading="lazy"
+    width={300}
+    height={300}
+  />
+
+  <Image
+    src={Boda}
+    alt="Boda elegante"
+    class="w-full h-full object-cover rounded md:row-span-2 md:col-span-1"
+    loading="lazy"
+    width={300}
+    height={300}
+  />
+
+  <div class="col-span-2 grid grid-cols-[auto_1fr] gap-4 items-stretch">
+    <Image
+      src={HombreSombrero}
+      alt="Hombre con sombrero"
+      class="w-[220px] md:w-[260px] lg:w-[300px] object-cover rounded  h-auto max-h-[300px]"
+      loading="lazy"
+      width={300}
+      height={300}
+    />
+    <Image
+      src={Pareja}
+      alt="Pareja en la calle"
+      class="w-full object-cover rounded  h-auto max-h-[300px]"
+      width={300}
+      loading="lazy"
+    />
+  </div>
+</SectionContainer>
